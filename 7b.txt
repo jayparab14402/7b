@@ -1,0 +1,31 @@
+B)Performing Spatial join
+We will use 2 layers -
+ A shape file of borough boundaries of New York city and another shape file of nursing home
+ locations in New York city. We will use spatial join technique to find the total nursing home
+ capacity for each of the boroughs.
+Required dataset:
+nybb_12c.zip OEM_NursingHomes_001.zip
+1.Add Vector layer “nybb.shp” and “OEM_NursingHomes_001.shp”
+2.Both the files are loaded in QGIS
+3.Right click on OEM_NursingHomes_001 from layer pane and click on Open Attribute Table.
+4.Observe the table. Since our task is to calculate total nursing home capacity for each borough,
+ we can use “Capacity” attribute which can be join to the boundaries layer.
+5.Go to Vector Data Management Tool Join attributes by location.
+6.The Target vector layer is the one which we want to add the attributes to. In this case, this will
+ be the boroughs boundary “nybb” layer. The Join vector layer will be the nursing homes “OEM_NursingHomes_001”
+ layer. Since we want to sum the capacity of nursing homes,
+select “Take summary of intersecting features” and choose “Sum”. Browse to the location where we want to save this
+ file and give name as nyc_borough_join.shp. In the Output table select “Keep all records”.
+7.Select Yes when asked if you want to add the layer to TOC. The new layer nyc_borough_join would have the features
+ from nybb layer along with spatially joined attributes from OEM_NUrsingHomes_001 layer. Right-click on the newly 
+created layer and select Open Attribute Table.
+8.In attribute table there is one column SUMCapacit, this is the sum of capacity attribute for nursing homes fall 
+within each borough feature.
+9.This is something for which we are looking, but some extra attributes are also available which are of no use for this
+ project so we will delete those columns. Click on Toggle editing button and then Delete column button.
+10.Press control key and from the delete attribute window select the columns which we want to delete then click on Ok button.
+11.In the attribute table window click on save edits button then click on toggle editing button again.
+12.Now in QGIS main window, use identify tool to verify that the output file has desired attributes for each feature.
+
+ 
+
